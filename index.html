@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance Support Center | Cryptocurrency Exchange</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --binance-yellow: #F0B90B;
+            --binance-black: #1E2026;
+            --binance-gray-dark: #474D57;
+            --binance-gray-medium: #848E9C;
+            --binance-gray-light: #EAECEF;
+            --binance-bg-light: #F8F9FA;
+            --binance-blue: #2B71FF;
+            --binance-green: #02C076;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--binance-bg-light);
+            color: var(--binance-black);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--binance-black);
+            color: white;
+            padding: 8px 0;
+            font-size: 12px;
+        }
+        
+        .top-bar-container {
+            display: flex;
+            justify-content: flex-end;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .top-bar-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .top-bar-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .top-bar-links a:hover {
+            color: var(--binance-yellow);
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 24px;
+        }
+        
+        .logo-text {
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--binance-black);
+        }
+        
+        nav.main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav.main-nav a {
+            text-decoration: none;
+            color: var(--binance-black);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        nav.main-nav a:hover {
+            color: var(--binance-yellow);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .login-btn, .register-btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .login-btn {
+            background: transparent;
+            border: 1px solid var(--binance-gray-light);
+            color: var(--binance-black);
+        }
+        
+        .register-btn {
+            background: var(--binance-yellow);
+            border: 1px solid var(--binance-yellow);
+            color: var(--binance-black);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .hero-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            color: var(--binance-gray-dark);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 16px;
+        }
+        
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border-radius: 8px;
+            border: 1px solid var(--binance-gray-light);
+            font-size: 16px;
+            background-color: var(--binance-bg-light);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--binance-yellow);
+            background-color: white;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--binance-gray-medium);
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 60px 0;
+        }
+        
+        .section-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--binance-black);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            border: 1px solid var(--binance-gray-light);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: var(--binance-yellow);
+        }
+        
+        .category-icon {
+            font-size: 24px;
+            color: var(--binance-yellow);
+            margin-bottom: 15px;
+        }
+        
+        .category-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--binance-black);
+        }
+        
+        .category-links {
+            list-style: none;
+        }
+        
+        .category-links li {
+            margin-bottom: 10px;
+        }
+        
+        .category-links a {
+            text-decoration: none;
+            color: var(--binance-gray-dark);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        
+        .category-links a:hover {
+            color: var(--binance-yellow);
+        }
+        
+        .category-links i {
+            font-size: 12px;
+            color: var(--binance-gray-medium);
+        }
+        
+        /* Popular Articles */
+        .popular-articles {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .article-card {
+            border: 1px solid var(--binance-gray-light);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            border-color: var(--binance-yellow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .article-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--binance-black);
+        }
+        
+        .article-card p {
+            color: var(--binance-gray-medium);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 12px;
+            color: var(--binance-gray-medium);
+        }
+        
+        /* Help Section */
+        .help-section {
+            padding: 60px 0;
+            background-color: var(--binance-bg-light);
+        }
+        
+        .help-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .help-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--binance-gray-light);
+        }
+        
+        .help-card i {
+            font-size: 32px;
+            color: var(--binance-yellow);
+            margin-bottom: 15px;
+        }
+        
+        .help-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .help-card p {
+            color: var(--binance-gray-medium);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .help-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--binance-yellow);
+            color: var(--binance-black);
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .help-btn:hover {
+            background-color: #e0ae0a;
+        }
+        
+        /* Status Banner */
+        .status-banner {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--binance-gray-light);
+        }
+        
+        .status-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--binance-green);
+        }
+        
+        .status-text {
+            font-size: 14px;
+        }
+        
+        .status-link {
+            margin-left: auto;
+            color: var(--binance-blue);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--binance-black);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #A7A7A7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--binance-yellow);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #2B3139;
+            padding: 20px 0;
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #A7A7A7;
+            font-size: 20px;
+            transition: color 0.2s;
+        }
+        
+        .social-links a:hover {
+            color: var(--binance-yellow);
+        }
+        
+        .copyright {
+            color: #A7A7A7;
+            font-size: 12px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav.main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .category-grid, .articles-grid, .help-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-links">
+                <a href="#"><i class="fas fa-dollar-sign"></i> Buy Crypto</a>
+                <a href="#"><i class="fas fa-chart-line"></i> Markets</a>
+                <a href="#"><i class="fas fa-exchange-alt"></i> Trade</a>
+                <a href="#"><i class="fas fa-coins"></i> Derivatives</a>
+                <a href="#"><i class="fas fa-wallet"></i> Earn</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://bin.bnbstatic.com/static/images/common/logo_binance.svg" alt="Binance Logo">
+                <span class="logo-text">Binance</span>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Buy Crypto</a></li>
+                    <li><a href="#">Markets</a></li>
+                    <li><a href="#">Trade</a></li>
+                    <li><a href="#">Derivatives</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">NFT</a></li>
+                    <li><a href="#">Institutional</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="login-btn">Log In</button>
+                <button class="register-btn">Register</button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Status Banner -->
+    <div class="status-banner">
+        <div class="status-container">
+            <div class="status-indicator"></div>
+            <div class="status-text">All Systems Operational</div>
+            <a href="#" class="status-link">View System Status</a>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>How can we help you?</h1>
+            <p>Search our help center to find answers about your account, trading, security, and more.</p>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for answers...">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="section-container">
+            <h2 class="section-title">Browse by Category</h2>
+            
+            <div class="category-grid">
+                <!-- Category Card 1 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Getting Started</h3>
+                    <ul class="category-links">
+                        <li><a href="#">How to Register a Binance Account <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Identity Verification Guide <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">How to Deposit Funds <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Buying Crypto with Credit Card <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Category Card 2 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Account Security</h3>
+                    <ul class="category-links">
+                        <li><a href="#">Two-Factor Authentication (2FA) <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Anti-Phishing Code Setup <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Device Management <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Security Tips for Your Account <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Category Card 3 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Trading</h3>
+                    <ul class="category-links">
+                        <li><a href="#">Spot Trading Guide <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Margin Trading Explained <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Futures Trading Basics <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Using Trading Bots <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Category Card 4 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Deposits & Withdrawals</h3>
+                    <ul class="category-links">
+                        <li><a href="#">Fiat Deposit Methods <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Crypto Deposit Guide <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Withdrawal Process <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#">Withdrawal Limits & Fees <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Popular Articles -->
+    <section class="popular-articles">
+        <div class="section-container">
+            <h2 class="section-title">Popular Articles</h2>
+            
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <div class="article-card">
+                    <h3>How to reset your 2FA when you can't access your account</h3>
+                    <p>Step-by-step guide to recover your account access when you've lost your 2FA device.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                        <span><i class="far fa-eye"></i> 45,231 views</span>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="article-card">
+                    <h3>Binance account registration: Step-by-step guide</h3>
+                    <p>Complete instructions for creating your Binance account and starting your crypto journey.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 3 min read</span>
+                        <span><i class="far fa-eye"></i> 102,567 views</span>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="article-card">
+                    <h3>How to deposit cryptocurrency on Binance</h3>
+                    <p>Learn how to transfer crypto from external wallets or other exchanges to your Binance account.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                        <span><i class="far fa-eye"></i> 78,912 views</span>
+                    </div>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="article-card">
+                    <h3>How to buy cryptocurrency with credit/debit card</h3>
+                    <p>Instant purchases with your card - fees, limits, and supported currencies explained.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 3 min read</span>
+                        <span><i class="far fa-eye"></i> 156,302 views</span>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="article-card">
+                    <h3>Binance P2P trading: Beginner's guide</h3>
+                    <p>Everything you need to know about peer-to-peer trading on Binance.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                        <span><i class="far fa-eye"></i> 34,789 views</span>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="article-card">
+                    <h3>Understanding Binance fees and discounts</h3>
+                    <p>Complete breakdown of trading fees, withdrawal fees, and how to get fee discounts.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                        <span><i class="far fa-eye"></i> 89,456 views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Help Section -->
+    <section class="help-section">
+        <div class="section-container">
+            <h2 class="section-title">Need more help?</h2>
+            
+            <div class="help-cards">
+                <!-- Help Card 1 -->
+                <div class="help-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Get instant help from our support team 24/7</p>
+                    <a href="#" class="help-btn">Chat Now</a>
+                </div>
+                
+                <!-- Help Card 2 -->
+                <div class="help-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Submit a Request</h3>
+                    <p>We'll get back to you as soon as possible</p>
+                    <a href="#" class="help-btn">Submit Ticket</a>
+                </div>
+                
+                <!-- Help Card 3 -->
+                <div class="help-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>Send us an email with your questions</p>
+                    <a href="#" class="help-btn">Contact Support</a>
+                </div>
+                
+                <!-- Help Card 4 -->
+                <div class="help-card">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter Support</h3>
+                    <p>Reach out to us on our official Twitter</p>
+                    <a href="#" class="help-btn">Tweet @Binance</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Exchange</a></li>
+                        <li><a href="#">Academy</a></li>
+                        <li><a href="#">Binance Live</a></li>
+                        <li><a href="#">Charity</a></li>
+                        <li><a href="#">Card</a></li>
+                        <li><a href="#">Gift Card</a></li>
+                        <li><a href="#">Labs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Desktop Application</a></li>
+                        <li><a href="#">Buy Crypto</a></li>
+                        <li><a href="#">Institutional Services</a></li>
+                        <li><a href="#">OTC Trading</a></li>
+                        <li><a href="#">Referral</a></li>
+                        <li><a href="#">Affiliate</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Give Us Feedback</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Submit a Request</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Trading Rules</a></li>
+                        <li><a href="#">Fees</a></li>
+                        <li><a href="#">Binance Verify</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Business Contacts</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Announcements</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 5 -->
+                <div class="footer-column">
+                    <h3>Learn</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Learn & Earn</a></li>
+                        <li><a href="#">Browse Crypto Prices</a></li>
+                        <li><a href="#">Bitcoin Price</a></li>
+                        <li><a href="#">Ethereum Price</a></li>
+                        <li><a href="#">Buy BNB</a></li>
+                        <li><a href="#">Buy Bitcoin</a></li>
+                        <li><a href="#">Buy Ethereum</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-reddit"></i></a>
+                    </div>
+                    
+                    <div class="copyright">
+                        © 2023 Binance. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
